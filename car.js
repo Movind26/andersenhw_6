@@ -130,10 +130,7 @@ class Car {
       throw new Error("Car is can't drive much faster");
     } else if (this.#isStarted === false) {
       throw new Error('Car must be started');
-    } else if (
-      (speed * hoursOfTime) / this.#fuelConsumption >
-      this.#currentFuelVolume
-    ) {
+    } else if ((speed * hoursOfTime) / this.#fuelConsumption > this.#currentFuelVolume) {
       throw new Error('Insufficient fuel');
     }
 
@@ -141,18 +138,3 @@ class Car {
     this.#mileage += speed * hoursOfTime;
   }
 }
-
-const car = new Car();
-console.log(car.brand);
-console.log(car.model);
-console.log(car.yearOfManufacturing);
-console.log(car.maxSpeed);
-console.log(car.maxFuelVolume);
-console.log(car.fuelConsumption);
-console.log(car.currentFuelVolume);
-console.log(car.isStarted);
-console.log(car.mileage);
-car.fillUpGasTank = 50;
-car.start();
-car.drive(50, 1);
-console.log(car.mileage);
